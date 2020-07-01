@@ -53,6 +53,7 @@ pipeline {
             }
         }
         stage('Build  Image') {
+        	when { tag "refs/tags/release-*" }
         	agent any
             steps {
                 script {
@@ -67,6 +68,7 @@ pipeline {
             }
         }
         stage('deploy') {
+        	when { tag "refs/tags/release-*" }
         	agent any
             steps {
                 script {
@@ -80,6 +82,7 @@ pipeline {
             }
         }
         stage('Notification'){ // 通知企微机器人
+        	when { tag "refs/tags/release-*" }
         	agent any
             steps {
                 script{

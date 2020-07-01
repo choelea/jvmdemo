@@ -11,7 +11,7 @@ def WEBHOOK_TOKEN = "jvmdemo"  // http://JENKINS_URL/generic-webhook-trigger/inv
 def S_NAME = 'JVM Utils Demo'
 def registryServer = 'https://registry.cn-hangzhou.aliyuncs.com/'
 def jenkinsCredentialId = 'registry-aliyun-credentials'
-def robotUrl = 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=bf32cb1d-2fc9-410d-a28f-7427b4aa0ffb'
+def robotUrl = 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=c82aea15-f01d-4103-b55d-a033e4780aa6'
 
 
 //构建流程定义
@@ -50,8 +50,8 @@ pipeline {
         	agent any
             steps {
                 script {
-                        //env.tagv = ref.substring(18) // when use gitlab
-                        env.tagv = ref
+                        env.tagv = ref.substring(8) // when use gitlab
+                        //env.tagv = ref
                         docker.withRegistry(registryServer,jenkinsCredentialId) {//登录到远程docker仓库，第二个参数是在Jenkins中配置的凭据，详情见官网
                             def image = docker.build(R_NAME)
                             image.push("latest")

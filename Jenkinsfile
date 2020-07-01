@@ -38,9 +38,10 @@ pipeline {
                 }
             }
             steps {
-                script {
-                	sh 'mvn clean package'
-                }
+            	echo "*******The ref is ${ref}******"
+            	echo "*******The tag_name is ${tag_name}******"
+            	echo "*******The tag is ${tag}******"
+            	sh 'mvn clean package'
             }
         }
         stage('Build  Image') {

@@ -45,7 +45,8 @@ pipeline {
             }
         }
         stage('Build  Image') {
-        	when { tag "refs/tags/release-*" }
+        	//when { tag "refs/tags/release-*" } // github 和 gitlab 请求过来的post body中的$.ref 的值不同，github 不会带有'refs/tags/'  gitlab 会带有 'refs/tags/'
+        	when { tag "release-*" }
         	agent any
             steps {
                 script {
@@ -60,7 +61,7 @@ pipeline {
             }
         }
         stage('Notification'){ // 通知企微机器人
-        	when { tag "refs/tags/release-*" }
+        	when { tag "release-*" }
         	agent any
             steps {
                 script{

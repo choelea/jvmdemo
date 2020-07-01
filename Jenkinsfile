@@ -9,19 +9,11 @@
 def R_NAME = "jiu-shu/jvmdemo"  
 def WEBHOOK_TOKEN = "jvmdemo"  // {jenkinsURL}/invoke?token=${WEBHOOK_TOKEN}
 def S_NAME = 'JVM Utils Demo'
-//def serverHost = '121.42.12.209'
 def registryServer = 'https://registry.cn-hangzhou.aliyuncs.com/'
 def jenkinsCredentialId = 'registry-aliyun-credentials'
-//def sshCredentialId = 'wuhan_vm'
 def robotUrl = 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=bf32cb1d-2fc9-410d-a28f-7427b4aa0ffb'
 
 
-// ************ 下面的配置可以保持不变 *************** //
-//变量已经方法定义
-def remote = [:]
-remote.name = 'Server'
-remote.host = serverHost
-remote.allowAnyHosts = true
 //构建流程定义
 pipeline {
     agent none //后续步骤的执行环境 这个位置是全局的执行环境，如果配置了，后续步骤都是这个执行环境，该文件中不同步骤执行环境不同，所以此处配置为none

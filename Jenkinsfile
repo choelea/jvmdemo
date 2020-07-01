@@ -50,7 +50,8 @@ pipeline {
         	agent any
             steps {
                 script {
-                        env.tagv = ref.substring(18)
+                        //env.tagv = ref.substring(18) // when use gitlab
+                        env.tagv = ref
                         docker.withRegistry(registryServer,jenkinsCredentialId) {//登录到远程docker仓库，第二个参数是在Jenkins中配置的凭据，详情见官网
                             def image = docker.build(R_NAME)
                             image.push("latest")

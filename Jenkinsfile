@@ -40,7 +40,7 @@ pipeline {
             steps {
             	echo "*******The ref is ${ref}******"
             	echo "*******The tag_name is ${tag_name}******"
-            	echo "*******The tag is ${tag}******"
+            	// echo "*******The tag is ${tag}******" // tag 这个变量不存在，目前来看 when 条件的 tag 取的是tag_name的值
             	sh 'mvn clean package'
             }
         }

@@ -7,7 +7,7 @@
 */
 // 以下是需要修改的常量--------------------
 def R_NAME = "jiu-shu/jvmdemo"  
-def WEBHOOK_TOKEN = "jvmdemo"  // {jenkinsURL}/invoke?token=${WEBHOOK_TOKEN}
+def WEBHOOK_TOKEN = "jvmdemo"  // http://JENKINS_URL/generic-webhook-trigger/invoke?token=${WEBHOOK_TOKEN}
 def S_NAME = 'JVM Utils Demo'
 def registryServer = 'https://registry.cn-hangzhou.aliyuncs.com/'
 def jenkinsCredentialId = 'registry-aliyun-credentials'

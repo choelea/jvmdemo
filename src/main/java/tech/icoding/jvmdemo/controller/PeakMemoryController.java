@@ -17,19 +17,20 @@ public class PeakMemoryController {
 	
 	@GetMapping("/peak")
 	public void generateOOM() throws Exception {
-		int iteratorValue = 20;
+		int level2 = 4000000;
+		int level1 = 2000;
+		Object[] objs = new Object[level1];
 		LOG.info("\n=================> OOM test started..\n");
-		for (int outerIterator = 1; outerIterator < 20; outerIterator++) {
+		for (int outerIterator = 1; outerIterator < level1; outerIterator++) {
 			LOG.info("Iteration " + outerIterator + " Free Mem: " + Runtime.getRuntime().freeMemory());
 			int loop1 = 2;
-			final int[] memoryFillIntVar = new int[iteratorValue];
+			final Object[] memoryFillIntVar = new Object[level2];
 			// feel memoryFillIntVar array in loop..
 			do {
 				memoryFillIntVar[loop1] = 0;
 				loop1--;
 			} while (loop1 > 0);
-			iteratorValue = iteratorValue * 5;
-			LOG.info("\nRequired Memory for next loop: " + iteratorValue);
+			objs[outerIterator] = memoryFillIntVar;
 			Thread.sleep(1000);
 		}
 	}

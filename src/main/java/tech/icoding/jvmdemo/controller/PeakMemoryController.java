@@ -17,7 +17,7 @@ public class PeakMemoryController {
 	
 	@GetMapping("/peak")
 	public void generateOOM() throws Exception {
-		int level2 = 4000000;
+		int level2 = 40000000;
 		int level1 = 2000;
 		Object[] objs = new Object[level1];
 		LOG.info("\n=================> OOM test started..\n");
